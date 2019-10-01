@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Model &#8212; Dokumentacija za projekat iz predmeta URS 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-model.Klase">
+<span id="model"></span><h1>Model<a class="headerlink" href="#module-model.Klase" title="Permalink to this headline">¶</a></h1>
+<p>Created on 17.06.2019.</p>
+<p>&#64;author: Greksa</p>
+<dl class="class">
+<dt id="model.Klase.Artikal">
+<em class="property">class </em><code class="sig-prename descclassname">model.Klase.</code><code class="sig-name descname">Artikal</code><span class="sig-paren">(</span><em class="sig-param">oznaka</em>, <em class="sig-param">naziv</em>, <em class="sig-param">opis</em>, <em class="sig-param">cena</em>, <em class="sig-param">rok_trajanja</em>, <em class="sig-param">polica</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/model/Klase.html#Artikal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Klase.Artikal" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="model.Klase.Artikal.cena">
+<em class="property">property </em><code class="sig-name descname">cena</code><a class="headerlink" href="#model.Klase.Artikal.cena" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti cene</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="model.Klase.Identifikacija">
+<em class="property">class </em><code class="sig-prename descclassname">model.Klase.</code><code class="sig-name descname">Identifikacija</code><span class="sig-paren">(</span><em class="sig-param">oznaka</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/model/Klase.html#Identifikacija"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Klase.Identifikacija" title="Permalink to this definition">¶</a></dt>
+<dd><p>Klasa koja sadrzi atribute za identifikaciju</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="model.Klase.Polica">
+<em class="property">class </em><code class="sig-prename descclassname">model.Klase.</code><code class="sig-name descname">Polica</code><span class="sig-paren">(</span><em class="sig-param">oznaka</em>, <em class="sig-param">red</em>, <em class="sig-param">kolona</em>, <em class="sig-param">pozicija</em>, <em class="sig-param">duzina</em>, <em class="sig-param">sirina</em>, <em class="sig-param">visina</em>, <em class="sig-param">sekcija</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/model/Klase.html#Polica"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Klase.Polica" title="Permalink to this definition">¶</a></dt>
+<dd><p>Klasa koja sadrzi atribute za policu</p>
+<dl class="method">
+<dt id="model.Klase.Polica.duzina">
+<em class="property">property </em><code class="sig-name descname">duzina</code><a class="headerlink" href="#model.Klase.Polica.duzina" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti duzine</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.Klase.Polica.kolona">
+<em class="property">property </em><code class="sig-name descname">kolona</code><a class="headerlink" href="#model.Klase.Polica.kolona" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti kolone</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.Klase.Polica.red">
+<em class="property">property </em><code class="sig-name descname">red</code><a class="headerlink" href="#model.Klase.Polica.red" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti reda</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="model.Klase.Polica.sekcija">
+<code class="sig-name descname">sekcija</code><em class="property"> = None</em><a class="headerlink" href="#model.Klase.Polica.sekcija" title="Permalink to this definition">¶</a></dt>
+<dd><p>property je specijalni atribut koji dinamicki izracunava vrednost za pozvanu instancu</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.Klase.Polica.sirina">
+<em class="property">property </em><code class="sig-name descname">sirina</code><a class="headerlink" href="#model.Klase.Polica.sirina" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti sirine</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.Klase.Polica.visina">
+<em class="property">property </em><code class="sig-name descname">visina</code><a class="headerlink" href="#model.Klase.Polica.visina" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti visine</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="model.Klase.Racun">
+<em class="property">class </em><code class="sig-prename descclassname">model.Klase.</code><code class="sig-name descname">Racun</code><span class="sig-paren">(</span><em class="sig-param">oznaka</em>, <em class="sig-param">prodavac</em>, <em class="sig-param">ukupna_cena</em>, <em class="sig-param">datum</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/model/Klase.html#Racun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Klase.Racun" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="model.Klase.Racun.ukupna_cena">
+<em class="property">property </em><code class="sig-name descname">ukupna_cena</code><a class="headerlink" href="#model.Klase.Racun.ukupna_cena" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti ukupne cene</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="model.Klase.Sekcija">
+<em class="property">class </em><code class="sig-prename descclassname">model.Klase.</code><code class="sig-name descname">Sekcija</code><span class="sig-paren">(</span><em class="sig-param">oznaka</em>, <em class="sig-param">naziv</em>, <em class="sig-param">opis</em>, <em class="sig-param">pozicija</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/model/Klase.html#Sekcija"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Klase.Sekcija" title="Permalink to this definition">¶</a></dt>
+<dd><p>Klasa koja sadrzi atribute za sekciju</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="model.Klase.Stavka">
+<em class="property">class </em><code class="sig-prename descclassname">model.Klase.</code><code class="sig-name descname">Stavka</code><span class="sig-paren">(</span><em class="sig-param">oznaka</em>, <em class="sig-param">kolicina</em>, <em class="sig-param">ukupna_cena</em>, <em class="sig-param">artikal</em>, <em class="sig-param">racun</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/model/Klase.html#Stavka"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#model.Klase.Stavka" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="model.Klase.Stavka.kolicina">
+<em class="property">property </em><code class="sig-name descname">kolicina</code><a class="headerlink" href="#model.Klase.Stavka.kolicina" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti kolicine</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.Klase.Stavka.ukupna_cena">
+<em class="property">property </em><code class="sig-name descname">ukupna_cena</code><a class="headerlink" href="#model.Klase.Stavka.ukupna_cena" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter za vracane vrednosti ukupne cene</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Dokumentacija za projekat iz predmeta URS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Tim01.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/Dokumentacija/model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

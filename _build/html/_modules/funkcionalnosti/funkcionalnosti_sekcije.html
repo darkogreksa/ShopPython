@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>funkcionalnosti.funkcionalnosti_sekcije &#8212; Dokumentacija za projekat iz predmeta URS 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for funkcionalnosti.funkcionalnosti_sekcije</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Created on 21.06.2019.</span>
+
+<span class="sd">@author: Greksa</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">cuvanje.citanje_iz_fajla</span> <span class="k">import</span> <span class="n">citanje_sekcije</span><span class="p">,</span> <span class="n">citanje_police</span><span class="p">,</span>\
+    <span class="n">citanje_artikli</span>
+<span class="kn">from</span> <span class="nn">model.Klase</span> <span class="k">import</span> <span class="n">Sekcija</span>
+<span class="kn">from</span> <span class="nn">cuvanje.pisanje_u_fajl</span> <span class="k">import</span> <span class="n">pisanje_sekcija</span>
+
+<div class="viewcode-block" id="prikaz_sekcije"><a class="viewcode-back" href="../../Dokumentacija/funkcionalnosti.html#funkcionalnosti.funkcionalnosti_sekcije.prikaz_sekcije">[docs]</a><span class="k">def</span> <span class="nf">prikaz_sekcije</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funkcija za prikaz sekcije, </span>
+<span class="sd">    ucitava sve sekcije iz fajla i prikazuje ih na ekran</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">sekcije</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sekcije</span> <span class="o">=</span> <span class="n">citanje_sekcije</span><span class="p">()</span>
+    <span class="n">zaglavlje</span> <span class="o">=</span> <span class="s2">&quot;|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^15s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Oznaka&quot;</span><span class="p">,</span> <span class="s2">&quot;Naziv&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis&quot;</span><span class="p">,</span> <span class="s2">&quot;Pozicija&quot;</span><span class="p">)</span>
+    <span class="n">br</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sekcije</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|</span><span class="si">{:&lt;6s}</span><span class="s2">|</span><span class="si">{:&lt;15s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">oznaka</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">naziv</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">pozicija</span><span class="p">))</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="dodavanje_sekcije"><a class="viewcode-back" href="../../Dokumentacija/funkcionalnosti.html#funkcionalnosti.funkcionalnosti_sekcije.dodavanje_sekcije">[docs]</a><span class="k">def</span> <span class="nf">dodavanje_sekcije</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funkcija za dodavanje sekcije, </span>
+<span class="sd">    preuzima od korisnika potrebne podatke za novu sekciju,</span>
+<span class="sd">    pravi je, smesta u listu i upisuje u fajl</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sekcije</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sekcije</span> <span class="o">=</span> <span class="n">citanje_sekcije</span><span class="p">()</span>
+        <span class="n">oznaka</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite oznaku sekcije: &quot;</span><span class="p">)</span>
+        <span class="n">naziv</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite naziv sekcije: &quot;</span><span class="p">)</span>
+        <span class="n">opis</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite opis sekcije: &quot;</span><span class="p">)</span>
+        <span class="n">pozicija</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite poziciju sekcije: &quot;</span><span class="p">)</span>  
+        <span class="n">s</span> <span class="o">=</span> <span class="n">Sekcija</span><span class="p">(</span><span class="n">oznaka</span><span class="p">,</span> <span class="n">naziv</span><span class="p">,</span> <span class="n">opis</span><span class="p">,</span> <span class="n">pozicija</span><span class="p">)</span>
+        
+        <span class="sd">&#39;&#39;&#39;S JE OBJEKAT KLASE SEKCIJA, </span>
+<span class="sd">        Sekcija(oznaka, naziv, opis, pozicija) - konstruktor klase Sekcija&#39;&#39;&#39;</span>
+        
+        <span class="n">sekcije</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">pisanje_sekcija</span><span class="p">(</span><span class="n">sekcije</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uspesno ste dodali sekciju&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="izmena_sekcije"><a class="viewcode-back" href="../../Dokumentacija/funkcionalnosti.html#funkcionalnosti.funkcionalnosti_sekcije.izmena_sekcije">[docs]</a><span class="k">def</span> <span class="nf">izmena_sekcije</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funkcija za izmenu sekcije, </span>
+<span class="sd">    pruza mogucnost izmene odredjenog parametra sekcije</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sekcije</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sekcije</span> <span class="o">=</span> <span class="n">citanje_sekcije</span><span class="p">()</span>
+        <span class="n">oznaka</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite oznaku sekcije koju zelite da izmenite: &quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sekcije</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">oznaka</span> <span class="o">==</span> <span class="n">i</span><span class="o">.</span><span class="n">oznaka</span><span class="p">:</span>
+                <span class="n">izmena</span> <span class="o">=</span> <span class="n">i</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pronadjena oznaka&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Parametri za  menjanje:</span><span class="se">\n</span><span class="s2">1 - Oznaka</span><span class="se">\n</span><span class="s2">2 - Naziv</span><span class="se">\n</span><span class="s2">3 - Opis</span><span class="se">\n</span><span class="s2">4 - Pozicija&quot;</span><span class="p">)</span>
+                <span class="n">izbor</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+                <span class="n">izbor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+                <span class="k">while</span> <span class="n">izbor</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uneli ste pogresnu opciju.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">izbor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">izbor</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+                    <span class="n">oznaka2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite oznaku za izmenu: &quot;</span><span class="p">)</span>
+                    <span class="n">izmena</span><span class="o">.</span><span class="n">oznaka</span> <span class="o">=</span> <span class="n">oznaka2</span>
+                    <span class="n">pisanje_sekcija</span><span class="p">(</span><span class="n">sekcije</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">izbor</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+                    <span class="n">naziv2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite naziv za izmenu: &quot;</span><span class="p">)</span>
+                    <span class="n">izmena</span><span class="o">.</span><span class="n">naziv</span> <span class="o">=</span> <span class="n">naziv2</span>
+                    <span class="n">pisanje_sekcija</span><span class="p">(</span><span class="n">sekcije</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">izbor</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+                    <span class="n">opis2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite opis za izmenu: &quot;</span><span class="p">)</span>
+                    <span class="n">izmena</span><span class="o">.</span><span class="n">opis</span> <span class="o">=</span> <span class="n">opis2</span>
+                    <span class="n">pisanje_sekcija</span><span class="p">(</span><span class="n">sekcije</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">pozicija2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite poziciju za izmenu: &quot;</span><span class="p">)</span>
+                    <span class="n">izmena</span><span class="o">.</span><span class="n">pozicija</span> <span class="o">=</span> <span class="n">pozicija2</span>
+                    <span class="n">pisanje_sekcija</span><span class="p">(</span><span class="n">sekcije</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uspesno ste odradili izmene&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="pretraga_sekcije"><a class="viewcode-back" href="../../Dokumentacija/funkcionalnosti.html#funkcionalnosti.funkcionalnosti_sekcije.pretraga_sekcije">[docs]</a><span class="k">def</span> <span class="nf">pretraga_sekcije</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funkcija za pretragu sekcija </span>
+<span class="sd">    koja omogucava pretragu po odredjenom parametru</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sekcije</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sekcije</span> <span class="o">=</span> <span class="n">citanje_sekcije</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Parametri za pretragu:</span><span class="se">\n</span><span class="s2">1 - Oznaka</span><span class="se">\n</span><span class="s2">2 - Naziv</span><span class="se">\n</span><span class="s2">3 - Opis</span><span class="se">\n</span><span class="s2">4 - Pozicija&quot;</span><span class="p">)</span>
+        <span class="n">izbor</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+        <span class="n">izbor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">izbor</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uneli ste pogresnu opciju.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">izbor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">izbor</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">oznaka2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite oznaku za pretragu: &quot;</span><span class="p">)</span>
+            <span class="n">zaglavlje</span> <span class="o">=</span> <span class="s2">&quot;|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^15s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Oznaka&quot;</span><span class="p">,</span> <span class="s2">&quot;Naziv&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis&quot;</span><span class="p">,</span> <span class="s2">&quot;Pozicija&quot;</span><span class="p">)</span>
+            <span class="n">br</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sekcije</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">oznaka2</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">oznaka</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|</span><span class="si">{:&lt;6s}</span><span class="s2">|</span><span class="si">{:&lt;15s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">oznaka</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">naziv</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">pozicija</span><span class="p">))</span>
+                    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">izbor</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">naziv2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite naziv za pretragu: &quot;</span><span class="p">)</span>
+            <span class="n">zaglavlje</span> <span class="o">=</span> <span class="s2">&quot;|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^15s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Oznaka&quot;</span><span class="p">,</span> <span class="s2">&quot;Naziv&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis&quot;</span><span class="p">,</span> <span class="s2">&quot;Pozicija&quot;</span><span class="p">)</span>
+            <span class="n">br</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sekcije</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">naziv2</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">naziv</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|</span><span class="si">{:&lt;6s}</span><span class="s2">|</span><span class="si">{:&lt;15s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">oznaka</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">naziv</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">pozicija</span><span class="p">))</span>
+                    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">izbor</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">opis2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite opis za pretragu: &quot;</span><span class="p">)</span>
+            <span class="n">zaglavlje</span> <span class="o">=</span> <span class="s2">&quot;|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^15s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Oznaka&quot;</span><span class="p">,</span> <span class="s2">&quot;Naziv&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis&quot;</span><span class="p">,</span> <span class="s2">&quot;Pozicija&quot;</span><span class="p">)</span>
+            <span class="n">br</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sekcije</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">opis2</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">opis</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|</span><span class="si">{:&lt;6s}</span><span class="s2">|</span><span class="si">{:&lt;15s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">oznaka</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">naziv</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">pozicija</span><span class="p">))</span>
+                    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pozicija2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite poziciju za pretragu: &quot;</span><span class="p">)</span>
+            <span class="n">zaglavlje</span> <span class="o">=</span> <span class="s2">&quot;|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^15s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Oznaka&quot;</span><span class="p">,</span> <span class="s2">&quot;Naziv&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis&quot;</span><span class="p">,</span> <span class="s2">&quot;Pozicija&quot;</span><span class="p">)</span>
+            <span class="n">br</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sekcije</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">pozicija2</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">pozicija</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|</span><span class="si">{:&lt;6s}</span><span class="s2">|</span><span class="si">{:&lt;15s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">oznaka</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">naziv</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">pozicija</span><span class="p">))</span>
+                    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>  </div>
+        
+<div class="viewcode-block" id="prikaz_polica_i_artikala"><a class="viewcode-back" href="../../Dokumentacija/funkcionalnosti.html#funkcionalnosti.funkcionalnosti_sekcije.prikaz_polica_i_artikala">[docs]</a><span class="k">def</span> <span class="nf">prikaz_polica_i_artikala</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funkcija za prikaz svih polica i artikala u sekciji,</span>
+<span class="sd">    ona zahteva od korisnika da unese oznaku sekcije</span>
+<span class="sd">    i za tu sekciju  prikazuje na ekran sve police i artikle koja se nalaze u njoj</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">sekcije</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">police</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">artikli</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="n">sekcije</span> <span class="o">=</span> <span class="n">citanje_sekcije</span><span class="p">()</span>
+    <span class="n">police</span> <span class="o">=</span> <span class="n">citanje_police</span><span class="p">()</span>
+    <span class="n">artikli</span> <span class="o">=</span> <span class="n">citanje_artikli</span><span class="p">()</span>
+    
+    <span class="n">delovi_p</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">delovi_a</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">oznaka</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Unesite oznaku sekcije za prikaz polica i artikala u njoj: &quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">police</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">oznaka</span> <span class="o">==</span> <span class="n">p</span><span class="o">.</span><span class="n">sekcija</span><span class="p">:</span>
+            <span class="n">delovi_p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">police</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">oznaka</span> <span class="o">==</span> <span class="n">p</span><span class="o">.</span><span class="n">sekcija</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artikli</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">oznaka</span> <span class="o">==</span> <span class="n">a</span><span class="o">.</span><span class="n">polica</span><span class="p">:</span>
+                    <span class="n">delovi_a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+            
+    <span class="n">zaglavlje</span> <span class="o">=</span> <span class="s2">&quot;|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:^7s}</span><span class="s2">|</span><span class="si">{:^7s}</span><span class="s2">|</span><span class="si">{:^7s}</span><span class="s2">|</span><span class="si">{:^8s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Oznaka&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span><span class="s2">&quot;Kolona&quot;</span><span class="p">,</span><span class="s2">&quot;Pozicija&quot;</span><span class="p">,</span><span class="s2">&quot;Duzina&quot;</span><span class="p">,</span><span class="s2">&quot;Sirina&quot;</span><span class="p">,</span><span class="s2">&quot;Visina&quot;</span><span class="p">,</span> <span class="s2">&quot;Oznaka S&quot;</span><span class="p">)</span>
+    <span class="n">br</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ddp</span> <span class="ow">in</span> <span class="n">delovi_p</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|</span><span class="si">{:&lt;6s}</span><span class="s2">|</span><span class="si">{:&lt;6d}</span><span class="s2">|</span><span class="si">{:&lt;6d}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:&lt;7.2f}</span><span class="s2">|</span><span class="si">{:&lt;7.2f}</span><span class="s2">|</span><span class="si">{:&lt;7.2f}</span><span class="s2">|</span><span class="si">{:^8s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ddp</span><span class="o">.</span><span class="n">oznaka</span><span class="p">,</span> <span class="n">ddp</span><span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="n">ddp</span><span class="o">.</span><span class="n">kolona</span><span class="p">,</span> <span class="n">ddp</span><span class="o">.</span><span class="n">pozicija</span><span class="p">,</span> <span class="n">ddp</span><span class="o">.</span><span class="n">duzina</span><span class="p">,</span> <span class="n">ddp</span><span class="o">.</span><span class="n">sirina</span><span class="p">,</span> <span class="n">ddp</span><span class="o">.</span><span class="n">visina</span><span class="p">,</span> <span class="n">ddp</span><span class="o">.</span><span class="n">sekcija</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+    
+    <span class="n">zaglavlje</span> <span class="o">=</span> <span class="s2">&quot;|</span><span class="si">{:^6s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:^7s}</span><span class="s2">|</span><span class="si">{:^18s}</span><span class="s2">|</span><span class="si">{:^8s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Oznaka&quot;</span><span class="p">,</span> <span class="s2">&quot;Naziv&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis&quot;</span><span class="p">,</span> <span class="s2">&quot;Cena&quot;</span><span class="p">,</span> <span class="s2">&quot;Rok trajanja&quot;</span><span class="p">,</span> <span class="s2">&quot;Oznaka P&quot;</span><span class="p">)</span>
+    <span class="n">br</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zaglavlje</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">da</span> <span class="ow">in</span> <span class="n">delovi_a</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|</span><span class="si">{:&lt;6s}</span><span class="s2">|</span><span class="si">{:&lt;20s}</span><span class="s2">|</span><span class="si">{:^20s}</span><span class="s2">|</span><span class="si">{:&lt;7.2f}</span><span class="s2">|</span><span class="si">{:^18s}</span><span class="s2">|</span><span class="si">{:^8s}</span><span class="s2">|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">oznaka</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">naziv</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">cena</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">rok_trajanja</span> <span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">polica</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">br</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Dokumentacija za projekat iz predmeta URS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Tim01.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

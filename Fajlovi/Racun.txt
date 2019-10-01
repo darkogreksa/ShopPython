@@ -1,0 +1,2 @@
+R1|PPP|35000.0|datum1|
+R22|prodavac|1233.22|datum|

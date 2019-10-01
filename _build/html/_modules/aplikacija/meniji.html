@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>aplikacija.meniji &#8212; Dokumentacija za projekat iz predmeta URS 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for aplikacija.meniji</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Created on 21.06.2019.</span>
+
+<span class="sd">@author: Greksa</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">funkcionalnosti.funkcionalnosti_sekcije</span> <span class="k">import</span> <span class="n">prikaz_sekcije</span><span class="p">,</span>\
+    <span class="n">dodavanje_sekcije</span><span class="p">,</span> <span class="n">izmena_sekcije</span><span class="p">,</span> <span class="n">pretraga_sekcije</span><span class="p">,</span>\
+    <span class="n">prikaz_polica_i_artikala</span>
+<span class="kn">from</span> <span class="nn">funkcionalnosti.funkcionalnosti_police</span> <span class="k">import</span> <span class="n">prikaz_polica</span><span class="p">,</span>\
+    <span class="n">dodavanje_police</span><span class="p">,</span> <span class="n">izmena_police</span><span class="p">,</span> <span class="n">pretraga_police</span><span class="p">,</span> <span class="n">sortiranje_polica</span><span class="p">,</span>\
+    <span class="n">prikaz_artikala_za_police</span>
+<span class="kn">from</span> <span class="nn">funkcionalnosti.funckionalnosti_artikala</span> <span class="k">import</span> <span class="n">prikaz_artikla</span><span class="p">,</span> \
+    <span class="n">dodavanje_artikala</span><span class="p">,</span> <span class="n">izmena_artikala</span><span class="p">,</span> <span class="n">pretraga_artikala</span><span class="p">,</span> \
+    <span class="n">sortiranje_artikala</span>
+<span class="kn">from</span> <span class="nn">funkcionalnosti.funkcionalnosti_stavki</span> <span class="k">import</span> <span class="n">prikaz_stavki</span><span class="p">,</span> \
+    <span class="n">dodavanje_stavki</span><span class="p">,</span> <span class="n">izmena_stavki</span><span class="p">,</span> <span class="n">pretraga_stavki</span><span class="p">,</span> <span class="n">sortiranje_stavki</span>
+<span class="kn">from</span> <span class="nn">funkcionalnosti.funkcionalnosti_racuna</span> <span class="k">import</span> <span class="n">prikaz_racuna</span><span class="p">,</span> \
+    <span class="n">dodavanje_racuna</span><span class="p">,</span> <span class="n">izmena_racuna</span><span class="p">,</span> <span class="n">pretraga_racuna</span><span class="p">,</span> <span class="n">sortiranje_racuna</span><span class="p">,</span>\
+    <span class="n">prikaz_stavki_i_artikala</span>
+    
+<div class="viewcode-block" id="glavni_meni"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.glavni_meni">[docs]</a><span class="k">def</span> <span class="nf">glavni_meni</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Glavni meni  koji omogucava korisniku da izabere rad sa ponudjenim opcijama</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Meni:</span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1 - Rad sa sekcijama</span><span class="se">\n</span><span class="s2">2 - Rad sa policama</span><span class="se">\n</span><span class="s2">3 - Rad sa artiklima</span><span class="se">\n</span><span class="s2">4 - Rad sa stavkama</span><span class="se">\n</span><span class="s2">5 - Rad sa racunima</span><span class="se">\n</span><span class="s2">X - Izlazak iz aplikacije &quot;</span><span class="p">)</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uneli ste pogresu opciju.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sekcije_meni"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.sekcije_meni">[docs]</a><span class="k">def</span> <span class="nf">sekcije_meni</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Meni za sekcije,koji pruza korisniku odredjene operacije sa sekcijama</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Izabrali ste rad sa sekcijama</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Ponudjene opcije:</span><span class="se">\n</span><span class="s2">1 - Prikaz svih sekcija</span><span class="se">\n</span><span class="s2">2 - Dodavanje sekcija</span><span class="se">\n</span><span class="s2">3 - Izmena vrednosti sekcija</span>
+<span class="s2">4 - Pretraga sekcija</span><span class="se">\n</span><span class="s2">5 - Prikaz svih polica u sekciji i artikala na odgovarajucoj polici</span><span class="se">\n</span><span class="s2">X - Povratak u glavni meni&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uneli ste pogresu opciju.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> </div>
+
+<div class="viewcode-block" id="sekcije_izbor"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.sekcije_izbor">[docs]</a><span class="k">def</span> <span class="nf">sekcije_izbor</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Izbor opcije za sekcije koji poziva odredjenu funkciju za izabranu opciju</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+    <span class="k">while</span> <span class="n">opcija</span> <span class="o">!=</span><span class="s2">&quot;X&quot;</span><span class="p">:</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="n">sekcije_meni</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">prikaz_sekcije</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">dodavanje_sekcije</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">izmena_sekcije</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">pretraga_sekcije</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">prikaz_polica_i_artikala</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="police_meni"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.police_meni">[docs]</a><span class="k">def</span> <span class="nf">police_meni</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Meni za police,koji pruza korisniku odredjene operacije sa policama</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Izabrali ste rad sa policama</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Ponudjene opcije:</span><span class="se">\n</span><span class="s2">1 - Prikaz svih polica</span><span class="se">\n</span><span class="s2">2 - Dodavanje polica</span><span class="se">\n</span><span class="s2">3 - Izmena vrednosti polica</span>
+<span class="s2">4 - Pretraga polica</span><span class="se">\n</span><span class="s2">5 - Prikaz svih polica sortiranih po poziciji</span><span class="se">\n</span><span class="s2">6 - Prikaz svih artikala na odgovarajucoj polici</span><span class="se">\n</span><span class="s2">X - Povratak u glavni meni&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uneli ste pogresu opciju.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> </div>
+
+<div class="viewcode-block" id="police_izbor"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.police_izbor">[docs]</a><span class="k">def</span> <span class="nf">police_izbor</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Izbor opcije za police koji poziva odredjenu funkciju za izabranu opciju</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+    <span class="k">while</span> <span class="n">opcija</span> <span class="o">!=</span><span class="s2">&quot;X&quot;</span><span class="p">:</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="n">police_meni</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">prikaz_polica</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">dodavanje_police</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">izmena_police</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">pretraga_police</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">sortiranje_polica</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;6&quot;</span><span class="p">:</span>
+            <span class="n">prikaz_artikala_za_police</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="artikli_meni"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.artikli_meni">[docs]</a><span class="k">def</span> <span class="nf">artikli_meni</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Meni za artikle,koji pruza korisniku odredjene operacije sa artiklima</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Izabrali ste rad sa artiklima</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Ponudjene opcije:</span><span class="se">\n</span><span class="s2">1 - Prikaz svih artikala</span><span class="se">\n</span><span class="s2">2 - Dodavanje artikala</span><span class="se">\n</span><span class="s2">3 - Izmena vrednosti artikala</span>
+<span class="s2">4 - Pretraga artikala</span><span class="se">\n</span><span class="s2">5 - Sortiranje artikla</span><span class="se">\n</span><span class="s2">X - Povratak u glavni meni&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uneli ste pogresu opciju.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> </div>
+
+<div class="viewcode-block" id="artikli_izbor"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.artikli_izbor">[docs]</a><span class="k">def</span> <span class="nf">artikli_izbor</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Izbor opcije za artikle koji poziva odredjenu funkciju za izabranu opciju</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+    <span class="k">while</span> <span class="n">opcija</span> <span class="o">!=</span><span class="s2">&quot;X&quot;</span><span class="p">:</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="n">artikli_meni</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">prikaz_artikla</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">dodavanje_artikala</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">izmena_artikala</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">pretraga_artikala</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">sortiranje_artikala</span><span class="p">()</span></div>
+<div class="viewcode-block" id="stavke_meni"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.stavke_meni">[docs]</a><span class="k">def</span> <span class="nf">stavke_meni</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Meni za stavke,koji pruza korisniku odredjene operacije sa stavkama</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Izabrali ste rad sa stavkama</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Ponudjene opcije:</span><span class="se">\n</span><span class="s2">1 - Prikaz svih stavki</span><span class="se">\n</span><span class="s2">2 - Dodavanje stavke</span><span class="se">\n</span><span class="s2">3 - Izmena vrednosti stavke</span>
+<span class="s2">4 - Pretraga stavke</span><span class="se">\n</span><span class="s2">5 - Sortiranje stavke po kolicini</span><span class="se">\n</span><span class="s2">X - Povratak u glavni meni&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uneli ste pogresu opciju.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> </div>
+
+<div class="viewcode-block" id="stavke_izbor"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.stavke_izbor">[docs]</a><span class="k">def</span> <span class="nf">stavke_izbor</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Izbor opcije za stavke koji poziva odredjenu funkciju za izabranu opciju</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+    <span class="k">while</span> <span class="n">opcija</span> <span class="o">!=</span><span class="s2">&quot;X&quot;</span><span class="p">:</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="n">stavke_meni</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">prikaz_stavki</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">dodavanje_stavki</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">izmena_stavki</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">pretraga_stavki</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">sortiranje_stavki</span><span class="p">()</span></div>
+            
+<div class="viewcode-block" id="racuni_meni"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.racuni_meni">[docs]</a><span class="k">def</span> <span class="nf">racuni_meni</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Meni za racune,koji pruza korisniku odredjene operacije sa racunima</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Izabrali ste rad sa racunima</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Ponudjene opcije:</span><span class="se">\n</span><span class="s2">1 - Prikaz svih racuna</span><span class="se">\n</span><span class="s2">2 - Dodavanje racuna</span><span class="se">\n</span><span class="s2">3 - Izmena vrednosti racuna</span>
+<span class="s2">4 - Pretraga racuna</span><span class="se">\n</span><span class="s2">5 - Sortiranje racuna</span><span class="se">\n</span><span class="s2">6 - Prikaz stavki i artikala za racun</span><span class="se">\n</span><span class="s2">X - Povratak u glavni meni&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uneli ste pogresu opciju.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Izaberite opciju: &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">opcija</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> </div>
+
+<div class="viewcode-block" id="racuni_izbor"><a class="viewcode-back" href="../../Dokumentacija/aplikacija.html#aplikacija.meniji.racuni_izbor">[docs]</a><span class="k">def</span> <span class="nf">racuni_izbor</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Izbor opcije za stavke koji poziva odredjenu funkciju za izabranu opciju</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">opcija</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+    <span class="k">while</span> <span class="n">opcija</span> <span class="o">!=</span><span class="s2">&quot;X&quot;</span><span class="p">:</span>
+        <span class="n">opcija</span><span class="o">=</span><span class="n">racuni_meni</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">prikaz_racuna</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">dodavanje_racuna</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">izmena_racuna</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">pretraga_racuna</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">sortiranje_racuna</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcija</span><span class="o">==</span><span class="s2">&quot;6&quot;</span><span class="p">:</span>
+            <span class="n">prikaz_stavki_i_artikala</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Dokumentacija za projekat iz predmeta URS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Tim01.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

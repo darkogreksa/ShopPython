@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>model.Klase &#8212; Dokumentacija za projekat iz predmeta URS 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for model.Klase</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Created on 17.06.2019.</span>
+
+<span class="sd">@author: Greksa</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+
+<div class="viewcode-block" id="Identifikacija"><a class="viewcode-back" href="../../Dokumentacija/model.html#model.Klase.Identifikacija">[docs]</a><span class="k">class</span> <span class="nc">Identifikacija</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Klasa koja sadrzi atribute za identifikaciju </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oznaka</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Konstruktor</span>
+<span class="sd">        :param oznaka: cuva tekstualnu vrednost za oznaku</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot;self je eksplicitan prvi parametar, ** koristimo kod visestrukog nasledjivanja</span>
+<span class="sd">        kada nismo sigurni koliko cemo parametara proslediti&quot;&quot;&quot;</span>
+        
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oznaka</span> <span class="o">=</span> <span class="n">oznaka</span>
+    
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Metoda vraca tekstualnu prezentaciju objekta</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oznaka</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Sekcija"><a class="viewcode-back" href="../../Dokumentacija/model.html#model.Klase.Sekcija">[docs]</a><span class="k">class</span> <span class="nc">Sekcija</span><span class="p">(</span><span class="n">Identifikacija</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Klasa koja sadrzi atribute za sekciju </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oznaka</span><span class="p">,</span> <span class="n">naziv</span><span class="p">,</span> <span class="n">opis</span><span class="p">,</span> <span class="n">pozicija</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Konstruktor</span>
+<span class="sd">        :param oznaka: cuva tekstualnu vrednost za oznaku</span>
+<span class="sd">        :param naziv: cuva tekstualnu vrednost za naziv</span>
+<span class="sd">        :param opis: cuva tekstualnu vrednost za opis</span>
+<span class="sd">        :param pozicija: cuva tekstualnu vrednost za poziciju</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">oznaka</span><span class="o">=</span><span class="n">oznaka</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">naziv</span> <span class="o">=</span> <span class="n">naziv</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opis</span> <span class="o">=</span> <span class="n">opis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pozicija</span> <span class="o">=</span> <span class="n">pozicija</span>
+    
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Metoda koja vraca tekstualnu prezentaciju za sekciju</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">naziv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pozicija</span><span class="p">)</span></div>
+    
+    
+<div class="viewcode-block" id="Polica"><a class="viewcode-back" href="../../Dokumentacija/model.html#model.Klase.Polica">[docs]</a><span class="k">class</span> <span class="nc">Polica</span><span class="p">(</span><span class="n">Identifikacija</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Klasa koja sadrzi atribute za policu </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oznaka</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">kolona</span><span class="p">,</span> <span class="n">pozicija</span><span class="p">,</span> <span class="n">duzina</span><span class="p">,</span> <span class="n">sirina</span><span class="p">,</span> <span class="n">visina</span><span class="p">,</span> <span class="n">sekcija</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Konstruktor</span>
+<span class="sd">        :param oznaka: cuva tekstualnu vrednost za oznaku</span>
+<span class="sd">        :param red: cuva celobrojnu vrednost za red</span>
+<span class="sd">        :param kolona: cuva celobrojnu vrednost za kolonu</span>
+<span class="sd">        :param pozicija: cuva tekstualnu vrednost za poziciju</span>
+<span class="sd">        :param duzina: cuva decimalnu vrednost za duzinu</span>
+<span class="sd">        :param sirina: cuva decimalnu vrednost za sirinu</span>
+<span class="sd">        :param visina: cuva decimalnu vrednost za visinu</span>
+<span class="sd">        :param sekcija: cuva referencu na sekciju</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">oznaka</span><span class="o">=</span><span class="n">oznaka</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">red</span> <span class="o">=</span> <span class="n">red</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kolona</span> <span class="o">=</span> <span class="n">kolona</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pozicija</span> <span class="o">=</span> <span class="n">pozicija</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duzina</span> <span class="o">=</span> <span class="n">duzina</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sirina</span> <span class="o">=</span> <span class="n">sirina</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">visina</span> <span class="o">=</span> <span class="n">visina</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sekcija</span> <span class="o">=</span> <span class="n">sekcija</span>
+        
+        <span class="s2">&quot;property je specijalni atribut koji dinamicki izracunava vrednost za pozvanu instancu&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">red</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Getter za vracane vrednosti reda</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__red</span>
+    
+    <span class="nd">@red</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">red</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti reda</span>
+<span class="sd">        </span>
+<span class="sd">        :param value: vrednost koja se postavlja za red</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__red</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kolona</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Getter za vracane vrednosti kolone</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__kolona</span>
+    
+    <span class="nd">@kolona</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">kolona</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti kolone</span>
+<span class="sd">        </span>
+<span class="sd">        :param value: vrednost koja se postavlja za red</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__kolona</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">duzina</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Getter za vracane vrednosti duzine</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__duzina</span>
+    
+    <span class="nd">@duzina</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">duzina</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti duzine</span>
+<span class="sd">        </span>
+<span class="sd">        :param value: vrednost koja se postavlja za duzinu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__duzina</span> <span class="o">=</span> <span class="n">value</span>
+   
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sirina</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">         Getter za vracane vrednosti sirine</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sirina</span>
+    
+    <span class="nd">@sirina</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">sirina</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti sirine</span>
+<span class="sd">        </span>
+<span class="sd">        :param value: vrednost koja se postavlja za sirinu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__sirina</span> <span class="o">=</span> <span class="n">value</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">visina</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">         Getter za vracane vrednosti visine</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__visina</span>
+    
+    <span class="nd">@visina</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">visina</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti visine</span>
+<span class="sd">        </span>
+<span class="sd">        :param value: vrednost koja se postavlja za visinu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__visina</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kolona</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pozicija</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">duzina</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sirina</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">visina</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sekcija</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Artikal"><a class="viewcode-back" href="../../Dokumentacija/model.html#model.Klase.Artikal">[docs]</a><span class="k">class</span> <span class="nc">Artikal</span><span class="p">(</span><span class="n">Identifikacija</span><span class="p">):</span>
+        
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oznaka</span><span class="p">,</span> <span class="n">naziv</span><span class="p">,</span> <span class="n">opis</span><span class="p">,</span> <span class="n">cena</span><span class="p">,</span> <span class="n">rok_trajanja</span><span class="p">,</span> <span class="n">polica</span><span class="p">):</span>
+            
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">oznaka</span><span class="o">=</span><span class="n">oznaka</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">naziv</span> <span class="o">=</span> <span class="n">naziv</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opis</span> <span class="o">=</span> <span class="n">opis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cena</span> <span class="o">=</span> <span class="n">cena</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rok_trajanja</span> <span class="o">=</span> <span class="n">rok_trajanja</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">polica</span> <span class="o">=</span> <span class="n">polica</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cena</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">         Getter za vracane vrednosti cene</span>
+<span class="sd">        &#39;&#39;&#39;</span>      
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cena</span>
+        
+    <span class="nd">@cena</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cena</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti cene</span>
+<span class="sd">    </span>
+<span class="sd">        :param value: vrednost koja se postavlja za cenu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cena</span> <span class="o">=</span> <span class="n">value</span>
+            
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Metoda koja vraca tekstualnu prezentaciju za Artikal</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">naziv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cena</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok_trajanja</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">polica</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Stavka"><a class="viewcode-back" href="../../Dokumentacija/model.html#model.Klase.Stavka">[docs]</a><span class="k">class</span> <span class="nc">Stavka</span><span class="p">(</span><span class="n">Identifikacija</span><span class="p">):</span>
+            
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oznaka</span><span class="p">,</span> <span class="n">kolicina</span><span class="p">,</span> <span class="n">ukupna_cena</span><span class="p">,</span> <span class="n">artikal</span><span class="p">,</span> <span class="n">racun</span><span class="p">):</span>
+            
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">oznaka</span><span class="o">=</span><span class="n">oznaka</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kolicina</span> <span class="o">=</span> <span class="n">kolicina</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ukupna_cena</span> <span class="o">=</span> <span class="n">ukupna_cena</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">artikal</span> <span class="o">=</span> <span class="n">artikal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">racun</span> <span class="o">=</span> <span class="n">racun</span>
+            
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kolicina</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">         Getter za vracane vrednosti kolicine</span>
+<span class="sd">        &#39;&#39;&#39;</span>      
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__kolicina</span>
+        
+    <span class="nd">@kolicina</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">kolicina</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti kolicine</span>
+<span class="sd">        </span>
+<span class="sd">        :param value: vrednost koja se postavlja za kolicinu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__kolicina</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ukupna_cena</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">         Getter za vracane vrednosti ukupne cene</span>
+<span class="sd">        &#39;&#39;&#39;</span>      
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ukupna_cena</span>
+        
+    <span class="nd">@ukupna_cena</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ukupna_cena</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti ukupne cene</span>
+<span class="sd">        </span>
+<span class="sd">        :param value: vrednost koja se postavlja za ukupnu cenu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ukupna_cena</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">kolicina</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ukupna_cena</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">artikal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">racun</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Racun"><a class="viewcode-back" href="../../Dokumentacija/model.html#model.Klase.Racun">[docs]</a><span class="k">class</span> <span class="nc">Racun</span><span class="p">(</span><span class="n">Identifikacija</span><span class="p">):</span>
+        
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oznaka</span><span class="p">,</span> <span class="n">prodavac</span><span class="p">,</span> <span class="n">ukupna_cena</span><span class="p">,</span> <span class="n">datum</span><span class="p">):</span>
+            
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">oznaka</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prodavac</span> <span class="o">=</span> <span class="n">prodavac</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ukupna_cena</span> <span class="o">=</span> <span class="n">ukupna_cena</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datum</span> <span class="o">=</span> <span class="n">datum</span>
+            
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ukupna_cena</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">         Getter za vracane vrednosti ukupne cene</span>
+<span class="sd">        &#39;&#39;&#39;</span>      
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ukupna_cena</span>
+        
+    <span class="nd">@ukupna_cena</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ukupna_cena</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Setter za inicijalizovanje vrednosti ukupne cene</span>
+<span class="sd">        </span>
+<span class="sd">        :param value: vrednost koja se postavlja za ukupnu cenu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vrednost mora biti veca od nule!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ukupna_cena</span> <span class="o">=</span> <span class="n">value</span>  
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Metoda koja vraca tekstualnu prezentaciju za Racun</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">prodavac</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ukupna_cena</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">datum</span><span class="p">)</span></div>
+            
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Dokumentacija za projekat iz predmeta URS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Tim01.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,4 @@
+A1|artikla1|Opis1|100.0|Rok1|P1|
+A1|artikla1|Opis2|200.0|Rokic|P2|
+A3|artikal3|Opis3|300.0|Rok3|P3|
+A2|Naziv|Opisss|22.2|Rok|P22|
